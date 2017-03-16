@@ -4,16 +4,25 @@ buildscript {
 	}
 }
 
+apply plugin: 'maven'
 apply plugin: 'java'
 apply plugin: 'idea'
-//apply plugin: 'org.springframework.boot'
 
+group = 'work.assisjrs.seleniumtestcase'
 version = '0.0.1-SNAPSHOT'
+description = 'test case para integrar selenium, junit e springboot.'
+
 sourceCompatibility = 1.8
 
-jar {
-    baseName = 'selenium-test-case'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: mavenLocal().url)
+        }
+    }
 }
+
+jar { baseName = 'selenium-test-case' }
 
 repositories {
     jcenter()
@@ -27,7 +36,6 @@ repositories {
 	maven { url "https://repo.spring.io/snapshot" }
 	maven { url "https://repo.spring.io/milestone" }
 }
-
 
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
