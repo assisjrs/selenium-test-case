@@ -8,6 +8,18 @@ apply plugin: 'maven'
 apply plugin: 'java'
 apply plugin: 'idea'
 
+apply plugin: 'findbugs'
+
+/*
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+        html.stylesheet resources.text.fromFile('config/xsl/findbugs-custom.xsl')
+    }
+}
+*/
+
 group = 'work.assisjrs.seleniumtestcase'
 version = '0.0.1-SNAPSHOT'
 description = 'test case para integrar selenium, junit e springboot.'
